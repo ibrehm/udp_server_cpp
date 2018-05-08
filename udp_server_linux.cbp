@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="udp_server_linux" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/udp_server_linux" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/udp_server_linux" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Buff.cpp" />
+		<Unit filename="Buff.h" />
+		<Unit filename="BytePacket.cpp" />
+		<Unit filename="BytePacket.h" />
+		<Unit filename="ByteReader.cpp" />
+		<Unit filename="ByteReader.h" />
+		<Unit filename="Unit.cpp" />
+		<Unit filename="Unit.h" />
+		<Unit filename="client.cpp" />
+		<Unit filename="client.h" />
+		<Unit filename="cross_network.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="server.cpp" />
+		<Unit filename="server.h" />
+		<Unit filename="utils.cpp" />
+		<Unit filename="utils.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
