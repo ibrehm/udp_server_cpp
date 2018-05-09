@@ -1,3 +1,5 @@
+// (C) 2018 Ian Brehm
+//-----------------------------------------------------------------------------------------------------------
 // This header file is used to handle small variations between winsock (windows) and
 // Berkeley Sockets in Linux systems, to allow better cross compatability.
 
