@@ -85,7 +85,7 @@ T ByteReader::GetHeader(int start) {
 // to be removed later if it continues to not be needed.
 template<typename T>
 void ByteReader::SetHeader(int start, T adding) {
-	std::string setting((char*)&adding, sizeof(T));
+	std::string setting(reinterpret_cast<char*>(&adding), sizeof(T));
 
 	for(unsigned int i = 0; i < sizeof(T); i++) {
 		data[(i+start)] = setting[i];
@@ -95,7 +95,7 @@ void ByteReader::SetHeader(int start, T adding) {
 template<typename T>
 void ByteReader::Add(T adding) {
 	if(std::is_same<std::string, T>::value) {
-		std::string *temp = (std::string*)&adding;
+		std::string *temp = reinterpret_cast<std::string*>(&adding);
 		int size = temp->size();
 		// strings greater than 255 will need to be cut
 		if(size > 255) {
@@ -103,7 +103,7 @@ void ByteReader::Add(T adding) {
 		}
 		Add(temp->data(), size);
 	} else {
-		Add((const char*)&adding, sizeof(T));
+		Add(reinterpret_cast<const char*>(&adding), sizeof(T));
 	}
 }
 //-------------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ void ByteReader::Update(int num, T adding) {
 	start++;
 
 	if(sizeof(T) == size) {
-		std::string setting((char*)&adding, sizeof(T));
+		std::string setting(reinterpret_cast<char*>(&adding), sizeof(T));
 		for(unsigned int i = 0; i < sizeof(T); i++) {
 			data[(start+i)] = setting[i];
 		}
@@ -152,7 +152,7 @@ T ByteReader::Get(int num) {
 
 	if((size+start) < Size()) {
 		if(std::is_same<std::string, T>::value) {
-			std::string *holder = (std::string*)&rtrn;
+			std::string *holder = reinterpret_cast<std::string*>(&rtrn);
 
 			for(int i = 0; i < size; i++) {
 				*holder += data[start+1+i];

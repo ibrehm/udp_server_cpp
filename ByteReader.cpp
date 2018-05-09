@@ -22,7 +22,7 @@ ByteReader::~ByteReader() {
 char* ByteReader::rtrnData() {
 
 	// Store the variable total in a string buffer
-	std::string add_total((char*)&total_var, sizeof(int));
+	std::string add_total(reinterpret_cast<char*>(&total_var), sizeof(int));
 
 	// Add the total to the overall buffer
 	for(unsigned int i = 0; i < sizeof(int); i++) {
